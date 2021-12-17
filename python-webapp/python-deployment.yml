@@ -1,0 +1,26 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: rockstar-python-webapp  
+spec:
+  selector:
+    matchLabels:
+      app: rockstar-python-webapp 
+  replicas: 2 
+  minReadySeconds: 15 
+  strategy:
+    type: RollingUpdate 
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1 
+  template:
+    metadata: 
+      labels:
+        app: rockstar-python-webapp 
+    spec:
+      containers:
+        - image: deep2105/rockstar-python-webapp  
+          imagePullPolicy: Always
+          name: rockstar-python-webapp
+          ports:
+            - containerPort: 5050

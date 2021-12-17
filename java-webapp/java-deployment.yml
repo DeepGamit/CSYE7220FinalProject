@@ -1,0 +1,29 @@
+apiVersion: apps/v1 
+kind: Deployment
+metadata:
+  name: rockstar-java-webapp
+spec:
+  selector:
+    matchLabels:
+      app: rockstar-java-webapp
+  replicas: 2
+  minReadySeconds: 15 
+  strategy:
+    type: RollingUpdate 
+    rollingUpdate:
+      maxUnavailable: 1
+      maxSurge: 1 
+  template:
+    metadata: 
+      labels:
+        app: rockstar-java-webapp
+    spec:
+      containers:
+        - image: deep2105/rockstar-java-webapp:minikube
+          imagePullPolicy: Always
+          name: rockstar-java-webapp
+          env:
+            - name: SA_LOGIC_API_URL 
+              value: "http://rockstar-python-webapp-lb" 
+          ports:
+            - containerPort: 8080

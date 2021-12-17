@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: rockstar-python-webapp
+  labels:
+    app: rockstar-python-webapp
+spec:
+  containers:
+    - image: deep2105/rockstar-python-webapp
+      name: rockstar-python-webapp
+      ports:
+        - containerPort: 5050

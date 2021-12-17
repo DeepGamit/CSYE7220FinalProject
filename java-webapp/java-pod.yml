@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: rockstar-java-webapp
+  labels:
+    app: rockstar-java-webapp
+spec:
+  containers:
+    - image: deep2105/rockstar-java-webapp:minikube
+      name: rockstar-java-webapp
+      env:
+            - name: SA_LOGIC_API_URL 
+              value: "http://rockstar-python-webapp-lb"
+      ports:
+        - containerPort: 8080
