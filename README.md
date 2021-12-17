@@ -4,4 +4,4 @@
 - Deep Gamit (001057437)
 - Priyam Suthar (001054934)
 
-## For the instructions about how to run please refer Manifest File.
+## For the instructions about how to run this project, please refer Manifest file above.
